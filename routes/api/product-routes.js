@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     include: [
       {
         model: Category,
-        attributes: ['catagory_name']
+        attributes: ['category_name']
       },
       {
         model: Tag,
@@ -39,7 +39,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Category,
-        attributes: ['catagory_name']
+        attributes: ['category_name']
       },
       {
         model: Tag,
@@ -148,6 +148,7 @@ router.delete('/:id', (req, res) => {
         res.status(400).json({ message: 'No product found with this id' });
         return;
       }
+      res.json(dbProductData);
     })
     .catch(err => {
       console.log(err);
